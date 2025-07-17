@@ -171,7 +171,7 @@ app_license = "mit"
 
 # Testing
 # -------
-after_install = "wharf_management.install.after_install"
+after_install = "hr.install.after_install"
 # before_tests = "hr.install.before_tests"
 
 # Overriding Methods
