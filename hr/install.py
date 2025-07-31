@@ -93,6 +93,10 @@ def add_custom_statuses_to_employee():
         )
 
 
-def after_install():
-    add_custom_statuses_to_leave_application()
+def leave_status():
+	add_custom_statuses_to_leave_application()
+	
+
+def employee_status():
 	add_custom_statuses_to_employee()
+

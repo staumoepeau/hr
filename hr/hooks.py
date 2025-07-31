@@ -27,7 +27,8 @@ app_license = "mit"
 # include js, css files in header of desk.html
 # app_include_css = "/assets/hr/css/hr.css"
 # app_include_js = "/assets/hr/js/hr.js"
-
+app_include_css = "hr.bundle.css"
+web_include_css = "hr.bundle.css"
 # include js, css files in header of web template
 # web_include_css = "/assets/hr/css/hr.css"
 # web_include_js = "/assets/hr/js/hr.js"
@@ -171,7 +172,6 @@ app_license = "mit"
 
 # Testing
 # -------
-after_install = "hr.install.after_install"
 # before_tests = "hr.install.before_tests"
 
 # Overriding Methods
@@ -245,3 +245,7 @@ after_install = "hr.install.after_install"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+after_migrate = [
+ #   "hr.install.leave_status",
+    "hr.install.employee_status",
+]
