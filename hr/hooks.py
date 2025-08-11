@@ -247,5 +247,5 @@ web_include_css = "hr.bundle.css"
 
 after_migrate = [
  #   "hr.install.leave_status",
-    "hr.install.employee_status",
+    "hr.install.attendance_status",
 ]
