@@ -100,7 +100,7 @@ def add_custom_statuses_to_attendance():
     property_setter = frappe.db.get_value(
         "Property Setter",
         filters={
-            "doc_type": "Employee Attendance Tool",
+            "doc_type": "Attendance",
             "field_name": "status",
             "property": "options",
         },
@@ -120,7 +120,7 @@ def add_custom_statuses_to_attendance():
 
     else:
         # If no property setter exists, modify options using make_property_setter
-        meta = frappe.get_meta("Employee Attendance Tool")
+        meta = frappe.get_meta("Attendance")
         field = meta.get_field("status")
         current_options = field.options or ""
         options_list = current_options.split("\n")
@@ -130,7 +130,7 @@ def add_custom_statuses_to_attendance():
                 options_list.append(status)
 
         make_property_setter(
-            "Employee Attendance Tool",
+            "Attendance",
             "status",
             "options",
             "\n".join(options_list),

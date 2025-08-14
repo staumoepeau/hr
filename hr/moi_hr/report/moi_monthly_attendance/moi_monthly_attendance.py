@@ -22,7 +22,7 @@ status_map = {
 	"On Leave": "L",
 	"Holiday": "H",
 	"Weekly Off": "WO",
-	"Work Travel Overseas ": "WTO",
+	"Work Travel Overseas": "WTO",
 	"Work Travel Local": "WTL",
 }
 
@@ -72,6 +72,8 @@ def get_message() -> str:
 		"#3187D8",
 		"#878787",
 		"#878787",
+		"green",
+		"green"
 	]
 
 	count = 0
@@ -476,7 +478,7 @@ def get_attendance_summary_and_days(employee: str, filters: Filters) -> tuple[di
 
 	present_case = (
 		frappe.qb.terms.Case()
-		.when(((Attendance.status == "Present") | (Attendance.status == "Work From Home")), 1)
+		.when(((Attendance.status == "Present") | (Attendance.status == "Work From Home") | (Attendance.status == "Work Travel Oversease") | (Attendance.status == "Work Travel Local")), 1)
 		.else_(0)
 	)
 	sum_present = Sum(present_case).as_("total_present")

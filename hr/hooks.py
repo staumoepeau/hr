@@ -33,6 +33,8 @@ web_include_css = "hr.bundle.css"
 # web_include_css = "/assets/hr/css/hr.css"
 # web_include_js = "/assets/hr/js/hr.js"
 
+
+
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "hr/public/scss/website"
 
@@ -47,7 +49,12 @@ web_include_css = "hr.bundle.css"
 # doctype_js = {"doctype" : "public/js/doctype.js"}
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
-# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
+# doctype_cal
+# endar_js = {"doctype" : "public/js/doctype_calendar.js"}
+doctype_list_js = {
+
+    "Attendance" : "public/js/attendance_list.js"
+}
 
 # Svg Icons
 # ------------------
@@ -187,6 +194,11 @@ web_include_css = "hr.bundle.css"
 # override_doctype_dashboards = {
 # 	"Task": "hr.task.get_dashboard_data"
 # }
+
+override_doctype_class = {
+    "Attendance": "hr.overrides.attendance.CustomAttendance"
+}
+
 
 # exempt linked doctypes from being automatically cancelled
 #

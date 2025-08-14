@@ -73,7 +73,7 @@ frappe.query_reports["MOI Monthly Attendance"] = {
 	],
 	onload: function () {
 		return frappe.call({
-			method: "hrms.hr.report.monthly_attendance_sheet.monthly_attendance_sheet.get_attendance_years",
+			method: "hr.moi_hr.report.moi_monthly_attendance.moi_monthly_attendance.get_attendance_years",
 			callback: function (r) {
 				var year_filter = frappe.query_report.get_filter("year");
 				year_filter.df.options = r.message;
@@ -85,6 +85,7 @@ frappe.query_reports["MOI Monthly Attendance"] = {
 	},
 	formatter: function (value, row, column, data, default_formatter) {
 		value = default_formatter(value, row, column, data);
+		console.log(value, data);  
 		const summarized_view = frappe.query_report.get_filter_value("summarized_view");
 		const group_by = frappe.query_report.get_filter_value("group_by");
 
@@ -97,7 +98,7 @@ frappe.query_reports["MOI Monthly Attendance"] = {
 				if (value == "HD/P") value = "<span style='color:#914EE3'>" + value + "</span>";
 				else if (value == "HD/A")
 					value = "<span style='color:orange'>" + value + "</span>";
-				else if (value == "P" || value == "WFH")
+				else if (value == "P" || value == "WFH" || value == "WTO" || value == "WTL")
 					value = "<span style='color:green'>" + value + "</span>";
 				else if (value == "A") value = "<span style='color:red'>" + value + "</span>";
 				else if (value == "L") value = "<span style='color:#318AD8'>" + value + "</span>";
