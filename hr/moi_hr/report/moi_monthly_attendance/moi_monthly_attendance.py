@@ -660,7 +660,7 @@ def get_chart_data(attendance_map: dict, filters: Filters) -> dict:
 					break
 				elif attendance_on_day == "Absent":
 					total_absent_on_day += 1
-				elif attendance_on_day in ["Present", "Work From Home"]:
+				elif attendance_on_day in ["Present", "Work From Home","Work Travel Overseas", "Work Travel Local"]:
 					total_present_on_day += 1
 				elif attendance_on_day == "Half Day":
 					total_present_on_day += 0.5
