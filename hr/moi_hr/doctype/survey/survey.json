@@ -1,14 +1,17 @@
 {
  "actions": [],
- "allow_rename": 1,
+ "allow_copy": 1,
+ "allow_events_in_timeline": 1,
+ "autoname": "naming_series:",
  "creation": "2025-08-21 23:40:50.105516",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "naming_series",
   "section_break_sgsn",
-  "employee",
-  "column_break_sxzr",
   "employee_name",
+  "column_break_sxzr",
+  "employee",
   "section_break_qgcq",
   "experience_rating",
   "q2",
@@ -30,9 +33,9 @@
   },
   {
    "fieldname": "employee",
-   "fieldtype": "Link",
-   "label": "Employee",
-   "options": "Employee"
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Employee"
   },
   {
    "fieldname": "column_break_sxzr",
@@ -42,6 +45,9 @@
    "fetch_from": "employee.employee_name",
    "fieldname": "employee_name",
    "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Employee Name",
    "read_only": 1
   },
@@ -94,7 +100,7 @@
    "options": "\nLess than a year\nLess than six months\nSix months to a year\n1 - 2 years\n3 or more years"
   },
   {
-   "description": "1 - Not Satisfied                                                        5 - Extremely Satisfied",
+   "description": "1 - Not Satisfied                                                     5 - Extremely Satisfied",
    "fieldname": "q8",
    "fieldtype": "Select",
    "label": "Q8. On a scale of 1 to 5 how would you rate the responsiveness of our HR service?",
@@ -124,16 +130,28 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "SV-.YY.MM.######"
   }
  ],
  "grid_page_length": 50,
- "index_web_pages_for_search": 1,
- "is_submittable": 1,
- "links": [],
- "modified": "2025-08-22 09:16:18.435348",
+ "hide_toolbar": 1,
+ "links": [
+  {
+   "link_doctype": "Employee",
+   "link_fieldname": "employee"
+  }
+ ],
+ "make_attachments_public": 1,
+ "modified": "2025-09-04 04:04:06.623305",
  "modified_by": "Administrator",
  "module": "MOI HR",
  "name": "Survey",
+ "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [
   {
@@ -146,10 +164,33 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "All",
+   "share": 1,
    "write": 1
   }
  ],
+ "route": "survey",
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
