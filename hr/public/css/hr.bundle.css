@@ -1,4 +1,8 @@
 /* Works on Chrome, Edge, and Safari */
+:root {
+    --page-max-width: 1920px !important;
+}
+
 *::-webkit-scrollbar {
     width: 6px;
 }
